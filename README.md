@@ -1,4 +1,4 @@
-# finder-vue.js
+# calculator-vuex
 
 > A Vue.js project
 
