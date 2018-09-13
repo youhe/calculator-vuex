@@ -27,7 +27,9 @@ const actions = {
     commit('addCurrentNum', val);
   },
   operation ({commit, state}, val) {
-    if (state.currentNum != '0') {
+    if (state.currentNum == '' || state.currentNum == '0.') {
+      if (0 < state.oprs.length) commit('chOpr', val);
+    } else {
       commit('pushNum', state.currentNum);
       commit('pushOpr', val);
       commit('clearCurrentNum');
@@ -86,6 +88,11 @@ const mutations = {
     state.nums.push(val);
   },
   pushOpr (state, val) {
+    state.oprs.push(val);
+  },
+  chOpr (state, val) {
+    console.log('ch');
+    state.oprs.pop();
     state.oprs.push(val);
   },
   clearCurrentNum () {

@@ -1,17 +1,28 @@
 <template lang="pug">
 .num
-  - for (var i = 9; 0 <= i; i--)
-    .num-item(
-      @click="addNum('" + i + "')"
-    )
-      |#{i}
-  .num-item(
-    @click="addNum('.')"
-  )
+  .num-item(@click="addNum('7')")
+    |7
+  .num-item(@click="addNum('8')")
+    |8
+  .num-item(@click="addNum('9')")
+    |9
+  .num-item(@click="addNum('4')")
+    |4
+  .num-item(@click="addNum('5')")
+    |5
+  .num-item(@click="addNum('6')")
+    |6
+  .num-item(@click="addNum('1')")
+    |1
+  .num-item(@click="addNum('2')")
+    |2
+  .num-item(@click="addNum('3')")
+    |3
+  .num-item(@click="addNum('0')")
+    |0
+  .num-item(@click="addNum('.')")
     |.
-  .num-item(
-    @click="equal"
-  )
+  .num-item(@click="equal")
     |=
 </template>
 
