@@ -1,11 +1,15 @@
-<template>
-  <div class="op">
-    <div @click="clear">c</div>
-    <div @click="operation('+')">+</div>
-    <div @click="operation('-')">-</div>
-    <div @click="operation('*')">×</div>
-    <div @click="operation('/')">÷</div>
-  </div>
+<template lang="pug">
+.op
+  .op-item(@click="clear")
+    |c
+  .op-item(@click="operation('+')")
+    |+
+  .op-item(@click="operation('-')")
+    |-
+  .op-item(@click="operation('*')")
+    |×
+  .op-item(@click="operation('/')")
+    |÷
 </template>
 
 <style>
@@ -15,7 +19,7 @@
     margin: 0 auto;
     width: 300px;
   }
-  .op * {
+  .op-item {
     display: flex;
     align-items: center;
     justify-content: center;

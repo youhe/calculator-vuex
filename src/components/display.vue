@@ -1,5 +1,6 @@
-<template>
-  <div class="display">{{ display }}</div>
+<template lang="pug">
+.display
+  |{{ display }}
 </template>
 
 <style>

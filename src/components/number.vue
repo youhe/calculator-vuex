@@ -1,18 +1,16 @@
-<template>
-  <div class="num">
-    <div @click="addNum('9')">9</div>
-    <div @click="addNum('8')">8</div>
-    <div @click="addNum('7')">7</div>
-    <div @click="addNum('6')">6</div>
-    <div @click="addNum('5')">5</div>
-    <div @click="addNum('4')">4</div>
-    <div @click="addNum('3')">3</div>
-    <div @click="addNum('2')">2</div>
-    <div @click="addNum('1')">1</div>
-    <div @click="addNum('0')">0</div>
-    <div @click="equal">.</div>
-    <div @click="equal">=</div>
-  </div>
+<template lang="pug">
+.num
+  - for (var i = 9; 0 <= i; i--)
+    .num-item(
+      @click="addNum(" + i + ")"
+    )
+      |#{i}
+  .num-item()
+    |.
+  .num-item(
+    @click="equal"
+  )
+    |=
 </template>
 
 <style>
@@ -23,7 +21,7 @@
     margin: 10px auto 0;
     width: 300px;
   }
-  .num * {
+  .num-item {
     box-sizing: border-box;
     display: flex;
     align-items: center;
