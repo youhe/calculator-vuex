@@ -1,15 +1,17 @@
 <template>
   <div class="num">
-    <div @click="addNum('0')">0</div>
-    <div @click="addNum('1')">1</div>
-    <div @click="addNum('2')">2</div>
-    <div @click="addNum('3')">3</div>
-    <div @click="addNum('4')">4</div>
-    <div @click="addNum('5')">5</div>
-    <div @click="addNum('6')">6</div>
-    <div @click="addNum('7')">7</div>
-    <div @click="addNum('8')">8</div>
     <div @click="addNum('9')">9</div>
+    <div @click="addNum('8')">8</div>
+    <div @click="addNum('7')">7</div>
+    <div @click="addNum('6')">6</div>
+    <div @click="addNum('5')">5</div>
+    <div @click="addNum('4')">4</div>
+    <div @click="addNum('3')">3</div>
+    <div @click="addNum('2')">2</div>
+    <div @click="addNum('1')">1</div>
+    <div @click="addNum('0')">0</div>
+    <div @click="equal">.</div>
+    <div @click="equal">=</div>
   </div>
 </template>
 
@@ -28,8 +30,8 @@
     justify-content: center;
     margin: 15px 0 0;
     border: 1px solid #006a6c;
-    width: 56px;
-    height: 56px;
+    width: 92px;
+    height: 40px;
     font-size: 22px;
     cursor: pointer;
   }
@@ -40,6 +42,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   methods: mapActions([
+    'equal',
     'addNum'
   ])
 }

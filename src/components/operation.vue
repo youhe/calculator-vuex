@@ -3,9 +3,8 @@
     <div @click="clear">c</div>
     <div @click="operation('+')">+</div>
     <div @click="operation('-')">-</div>
-    <div @click="operation('*')">*</div>
-    <div @click="operation('/')">/</div>
-    <div @click="equal">=</div>
+    <div @click="operation('*')">×</div>
+    <div @click="operation('/')">÷</div>
   </div>
 </template>
 
@@ -15,15 +14,15 @@
     justify-content: space-between;
     margin: 0 auto;
     width: 300px;
-    font-size: 20px;
   }
   .op * {
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #006a6c;
-    width: 36px;
-    height: 36px;
+    width: 52px;
+    height: 40px;
+    font-size: 24px;
     cursor: pointer;
   }
 </style>
@@ -34,7 +33,6 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   methods: mapActions([
     'operation',
-    'equal',
     'clear',
   ])
 }
