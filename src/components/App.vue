@@ -8,13 +8,15 @@
   </div>
 </template>
 
-<style>
-  .frame {
-    box-sizing: border-box;
-    border: 1px solid #333;
-    padding: 0 0 20px;
-    width: 340px;
-  }
+<style lang="scss">
+@import "css/_variables";
+
+.frame {
+  box-sizing: border-box;
+  border: 1px solid #333;
+  padding: 0 0 20px;
+  width: 340px;
+}
 </style>
 
 <script>
