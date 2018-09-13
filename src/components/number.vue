@@ -2,10 +2,12 @@
 .num
   - for (var i = 9; 0 <= i; i--)
     .num-item(
-      @click="addNum(" + i + ")"
+      @click="addNum('" + i + "')"
     )
       |#{i}
-  .num-item()
+  .num-item(
+    @click="addNum('.')"
+  )
     |.
   .num-item(
     @click="equal"
@@ -47,8 +49,8 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   methods: mapActions([
+    'addNum',
     'equal',
-    'addNum'
   ])
 }
 </script>

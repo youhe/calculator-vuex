@@ -6,9 +6,9 @@
     |+
   .op-item(@click="operation('-')")
     |-
-  .op-item(@click="operation('*')")
+  .op-item(@click="operation('×')")
     |×
-  .op-item(@click="operation('/')")
+  .op-item(@click="operation('÷')")
     |÷
 </template>
 

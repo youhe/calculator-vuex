@@ -6,7 +6,7 @@ Vue.use(Vuex)
 const state = {
   nums: [],
   oprs: [],
-  currentNum: 0
+  currentNum: ''
 }
 
 const getters = {
@@ -16,7 +16,8 @@ const getters = {
       res += String(state.nums[i]);
       res += state.oprs[i];
     }
-    if (0 < state.currentNum || res == '') res += state.currentNum;
+    res += state.currentNum;
+    if (res == '') res += '0';
     return res;
   }
 }
@@ -26,7 +27,7 @@ const actions = {
     commit('addCurrentNum', val);
   },
   operation ({commit, state}, val) {
-    if (0 < state.currentNum) {
+    if (state.currentNum != '0') {
       commit('pushNum', state.currentNum);
       commit('pushOpr', val);
       commit('clearCurrentNum');
@@ -35,20 +36,20 @@ const actions = {
   equal ({commit, state}, val) {
     commit('pushNum', state.currentNum);
 
-    var res = state.nums[0];
+    var res = Number(state.nums[0]);
     for (var i = 1; i < state.nums.length; i++) {
       switch (state.oprs[i - 1]) {
         case '+':
-          res += state.nums[i]
+          res += Number(state.nums[i]);
           break;
         case '-':
-          res -= state.nums[i]
+          res -= Number(state.nums[i]);
           break;
-        case '*':
-          res *= state.nums[i]
+        case '×':
+          res *= Number(state.nums[i]);
           break;
-        case '/':
-          res /= state.nums[i]
+        case '÷':
+          res /= Number(state.nums[i]);
           break;
       }
     }
@@ -67,8 +68,19 @@ const actions = {
 
 const mutations = {
   addCurrentNum (state, val) {
-    var res = String(state.currentNum) + val;
-    state.currentNum = Number(res);
+    if (state.currentNum.indexOf('.') != -1 && val == '.') {
+      // 小数点２個目
+    } else if (state.currentNum == '0' && val == '0') {
+      // 00
+    } else if (state.currentNum == '' && val == '.') {
+      // . -> 0.
+      state.currentNum = '0.';
+    } else if (state.currentNum == '0' && val != '.') {
+      // 0x -> x
+      state.currentNum = String(val);
+    } else {
+      state.currentNum = state.currentNum + val;
+    }
   },
   pushNum (state, val) {
     state.nums.push(val);
@@ -77,7 +89,7 @@ const mutations = {
     state.oprs.push(val);
   },
   clearCurrentNum () {
-    state.currentNum = 0;
+    state.currentNum = '';
   },
   clearNum () {
     state.nums = [];
