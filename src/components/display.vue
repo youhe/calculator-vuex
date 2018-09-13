@@ -19,7 +19,7 @@
 </style>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   computed: mapGetters([

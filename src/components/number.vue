@@ -49,14 +49,14 @@
     transition: background 1s ease 0s;
     &:hover {
       transition: background .2s ease 0s;
-      background: #d6e9ca;
+      background: $color-bg-hover;
     }
   }
 }
 </style>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   methods: mapActions([
